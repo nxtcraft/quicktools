@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ═══ SEO ═══ -->
+<title>QuickTools — Free Online Tools</title>
+<meta name="description" content="9 free browser-based tools: word counter, JSON formatter, percentage calculator, password generator, image compressor, QR code generator, Base64 encoder/decoder, case converter, and unit converter. No signup required.">
+<meta name="keywords" content="word counter online, json formatter, percentage calculator, password generator, image compressor, qr code generator, base64 encoder decoder, case converter, unit converter, free online tools">
+<link rel="canonical" href="https://pradeepphdata.github.io/quicktools/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pradeepphdata.github.io/quicktools/">
+<meta property="og:title" content="QuickTools — Free Online Tools">
+<meta property="og:description" content="9 free browser-based utilities. Word counter, JSON formatter, % calculator, password gen, image compressor, QR code, Base64, case converter, unit converter.">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QuickTools — Free Online Tools">
+<meta name="twitter:description" content="9 free browser-based utilities. No signup. Nothing uploaded to servers.">
+
+<!-- Structured data (Google rich results) -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"QuickTools","url":"https://pradeepphdata.github.io/quicktools/","description":"Free collection of browser-based online tools","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+
+<!-- ═══ Google AdSense ═══ -->
+<!-- STEP 3: After AdSense approval, replace XXXXXXXXXXXXXXXX with your Publisher ID and uncomment: -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #F5F6F8; --surface: #FFFFFF; --border: #E3E6ED;
+  --fg: #111827; --fg2: #6B7480;
+  --accent: #0D9488; --accent-h: #0F766E; --accent-bg: #CCFBF1;
+  --danger: #EF4444; --success: #10B981; --warn: #F59E0B;
+  --sidebar-w: 210px;
+  --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono: 'SF Mono','Fira Code',Consolas,monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C0F17; --surface: #161923; --border: #252A3A;
+    --fg: #EFF1F7; --fg2: #7E8599; --accent: #2DD4BF; --accent-h: #5EEAD4; --accent-bg: #042F2E;
+    --danger: #F87171; --success: #34D399; --warn: #FCD34D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C0F17; --surface: #161923; --border: #252A3A;
+  --fg: #EFF1F7; --fg2: #7E8599; --accent: #2DD4BF; --accent-h: #5EEAD4; --accent-bg: #042F2E;
+  --danger: #F87171; --success: #34D399; --warn: #FCD34D;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font); background: var(--bg); color: var(--fg);
+  display: flex; flex-direction: column;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: max(0px, env(safe-area-inset-left, 0px));
+  padding-right: max(0px, env(safe-area-inset-right, 0px));
+}
+
+/* Top bar */
+.topbar { position: sticky; top: 0; z-index: 100; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 13px 20px; gap: 10px; }
+.logo { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 1.05rem; color: var(--fg); flex: 1; }
+.logo-mark { width: 30px; height: 30px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; font-weight: 800; flex-shrink: 0; }
+.tagline { font-size: 12px; color: var(--fg2); font-weight: 400; }
+.theme-btn { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; cursor: pointer; color: var(--fg2); font-size: 15px; line-height: 1; }
+.theme-btn:hover { background: var(--accent-bg); color: var(--accent); }
+
+/* Layout */
+.app { display: flex; flex: 1; min-height: 0; }
+
+/* Sidebar */
+.sidebar { width: var(--sidebar-w); min-width: var(--sidebar-w); background: var(--surface); border-right: 1px solid var(--border); padding: 14px 10px 20px; display: flex; flex-direction: column; gap: 2px; overflow-y: auto; }
+.sidebar-label { font-size: 10.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--fg2); padding: 10px 10px 6px; margin-top: 4px; }
+.sidebar-label:first-child { margin-top: 0; }
+.nav-btn { display: flex; align-items: center; gap: 9px; padding: 8px 10px; border-radius: 8px; cursor: pointer; color: var(--fg2); font-size: 13.5px; font-weight: 500; border: none; background: none; width: 100%; text-align: left; font-family: var(--font); transition: background .12s, color .12s; }
+.nav-btn:hover { background: var(--bg); color: var(--fg); }
+.nav-btn.active { background: var(--accent-bg); color: var(--accent); font-weight: 600; }
+.nav-icon { font-size: 15px; flex-shrink: 0; }
+
+/* Mobile nav */
+.mobile-nav { display: none; background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto; white-space: nowrap; padding: 8px; scrollbar-width: none; }
+.mobile-nav::-webkit-scrollbar { display: none; }
+.mobile-nav button { display: inline-flex; align-items: center; gap: 5px; padding: 6px 13px; border-radius: 20px; border: 1px solid var(--border); background: none; color: var(--fg2); font-family: var(--font); font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; margin-right: 6px; transition: all .12s; }
+.mobile-nav button.active { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); }
+
+/* Content */
+.content { flex: 1; min-width: 0; overflow-y: auto; padding: 28px 32px; }
+.tool-panel { display: none; max-width: 780px; }
+.tool-panel.active { display: block; }
+
+/* Ad slot placeholder — replace content with your <ins> tag after AdSense approval */
+.ad-slot { background: var(--bg); border: 1.5px dashed var(--border); border-radius: 10px; padding: 16px; text-align: center; margin-bottom: 22px; min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+.ad-slot-label { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg2); font-weight: 600; }
+.ad-slot-hint { font-size: 11px; color: var(--fg2); }
+
+/* STEP 3 — After AdSense: replace each .ad-slot div with your <ins class="adsbygoogle"> tag */
+
+/* Tool header */
+.tool-header { margin-bottom: 22px; }
+.tool-title { font-size: 1.35rem; font-weight: 700; text-wrap: balance; }
+.tool-desc { color: var(--fg2); font-size: 13.5px; margin-top: 3px; }
+
+/* Cards */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 14px; }
+.card-title { font-size: 12px; font-weight: 700; margin-bottom: 14px; color: var(--fg2); text-transform: uppercase; letter-spacing: .06em; }
+
+/* Stats */
+.stats-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.stat-box { flex: 1; min-width: 90px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+.stat-num { font-size: 1.45rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1.1; }
+.stat-label { font-size: 11.5px; color: var(--fg2); margin-top: 2px; }
+
+/* Inputs */
+textarea, input[type="text"], input[type="number"] { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 11px 13px; color: var(--fg); font-family: var(--font); font-size: 14px; resize: vertical; outline: none; transition: border-color .15s; }
+textarea:focus, input:focus { border-color: var(--accent); }
+.mono { font-family: var(--mono); font-size: 13px; }
+select { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 11px 13px; color: var(--fg); font-family: var(--font); font-size: 14px; outline: none; cursor: pointer; }
+select:focus { border-color: var(--accent); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 17px; border-radius: 8px; font-family: var(--font); font-size: 13.5px; font-weight: 600; cursor: pointer; border: none; transition: opacity .15s, transform .1s; }
+.btn:active { transform: scale(.97); }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-h); }
+.btn-ghost { background: var(--bg); border: 1px solid var(--border); color: var(--fg2); }
+.btn-ghost:hover { color: var(--fg); border-color: var(--fg); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+/* Output */
+.output-box { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 13px; font-family: var(--mono); font-size: 13px; white-space: pre-wrap; word-break: break-all; min-height: 60px; color: var(--fg); margin-top: 10px; max-height: 380px; overflow-y: auto; }
+
+/* Two / three col */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.field-group { display: flex; flex-direction: column; gap: 6px; }
+.field-label { font-size: 13px; font-weight: 500; color: var(--fg2); }
+
+/* Result band */
+.result-band { background: var(--accent-bg); border-radius: 10px; padding: 14px 18px; margin-top: 14px; display: flex; align-items: baseline; gap: 8px; }
+.result-band .rnum { font-size: 1.9rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.result-band .runit { color: var(--fg2); font-size: 13px; }
+
+/* Password */
+.pwd-box { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; font-family: var(--mono); font-size: 15px; letter-spacing: .03em; word-break: break-all; min-height: 52px; display: flex; align-items: center; color: var(--fg); }
+.strength-track { height: 4px; border-radius: 2px; background: var(--border); margin-top: 10px; overflow: hidden; }
+.strength-fill { height: 100%; border-radius: 2px; transition: width .3s, background .3s; }
+.strength-label { font-size: 12px; color: var(--fg2); margin-top: 5px; }
+.toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); gap: 12px; }
+.toggle-row:last-child { border-bottom: none; padding-bottom: 0; }
+.toggle-name { font-size: 13.5px; }
+.toggle { position: relative; width: 38px; height: 21px; flex-shrink: 0; }
+.toggle input { opacity: 0; width: 0; height: 0; }
+.toggle-track { position: absolute; inset: 0; background: var(--border); border-radius: 21px; cursor: pointer; transition: background .2s; }
+.toggle input:checked + .toggle-track { background: var(--accent); }
+.toggle-track::after { content: ''; position: absolute; left: 3px; top: 3px; width: 15px; height: 15px; border-radius: 50%; background: #fff; transition: transform .2s; }
+.toggle input:checked + .toggle-track::after { transform: translateX(17px); }
+
+/* Image */
+.drop-zone { border: 2px dashed var(--border); border-radius: 12px; padding: 36px 20px; text-align: center; cursor: pointer; transition: border-color .2s, background .2s; color: var(--fg2); }
+.drop-zone:hover, .drop-zone.over { border-color: var(--accent); background: var(--accent-bg); }
+.drop-zone input { display: none; }
+.img-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+.img-side { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.img-side img, .img-side canvas { width: 100%; height: 190px; object-fit: cover; display: block; }
+.img-side-meta { padding: 9px 13px; font-size: 12px; color: var(--fg2); border-top: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+.img-side-meta strong { color: var(--fg); }
+
+/* QR */
+.qr-center { display: flex; justify-content: center; padding: 20px 0 10px; }
+#qr-mount canvas { display: block; border-radius: 8px; }
+
+/* Range */
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+.range-row { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+
+/* Case */
+.case-btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+.case-btn { padding: 7px 14px; border-radius: 7px; border: 1px solid var(--border); background: var(--bg); color: var(--fg2); font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--font); transition: all .12s; }
+.case-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+
+/* Unit */
+.unit-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+.unit-tab { padding: 7px 16px; border-radius: 20px; border: 1px solid var(--border); background: none; color: var(--fg2); font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--font); transition: all .12s; }
+.unit-tab.active { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+
+/* Status line */
+.status-line { font-size: 13px; font-weight: 600; min-height: 20px; margin-bottom: 6px; }
+
+/* Toast */
+.toast { position: fixed; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); right: 18px; background: var(--fg); color: var(--bg); padding: 9px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; opacity: 0; transform: translateY(8px); transition: opacity .2s, transform .2s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 640px) {
+  .sidebar { display: none; }
+  .mobile-nav { display: block; }
+  .content { padding: 16px; }
+  .two-col, .img-compare { grid-template-columns: 1fr; }
+  .stats-row .stat-box { min-width: 80px; }
+}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<header class="topbar">
+  <div class="logo">
+    <div class="logo-mark">Q</div>
+    QuickTools <span class="tagline">Free online utilities</span>
+  </div>
+  <button class="theme-btn" id="theme-btn" title="Toggle theme">🌙</button>
+</header>
+
+<nav class="mobile-nav">
+  <button class="active" data-tool="word" onclick="go('word')">📝 Words</button>
+  <button data-tool="json" onclick="go('json')">📋 JSON</button>
+  <button data-tool="calc" onclick="go('calc')">🔢 Percent</button>
+  <button data-tool="pwd" onclick="go('pwd')">🔑 Password</button>
+  <button data-tool="img" onclick="go('img')">🖼 Image</button>
+  <button data-tool="qr" onclick="go('qr')">⬛ QR</button>
+  <button data-tool="b64" onclick="go('b64')">🔤 Base64</button>
+  <button data-tool="case" onclick="go('case')">🔡 Case</button>
+  <button data-tool="unit" onclick="go('unit')">📏 Units</button>
+</nav>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-label">Text</div>
+    <button class="nav-btn active" data-tool="word" onclick="go('word')"><span class="nav-icon">📝</span>Word Counter</button>
+    <button class="nav-btn" data-tool="json" onclick="go('json')"><span class="nav-icon">📋</span>JSON Formatter</button>
+    <button class="nav-btn" data-tool="b64" onclick="go('b64')"><span class="nav-icon">🔤</span>Base64 Encoder</button>
+    <button class="nav-btn" data-tool="case" onclick="go('case')"><span class="nav-icon">🔡</span>Case Converter</button>
+
+    <div class="sidebar-label">Math</div>
+    <button class="nav-btn" data-tool="calc" onclick="go('calc')"><span class="nav-icon">🔢</span>% Calculator</button>
+    <button class="nav-btn" data-tool="unit" onclick="go('unit')"><span class="nav-icon">📏</span>Unit Converter</button>
+
+    <div class="sidebar-label">Security</div>
+    <button class="nav-btn" data-tool="pwd" onclick="go('pwd')"><span class="nav-icon">🔑</span>Password Gen</button>
+
+    <div class="sidebar-label">Media</div>
+    <button class="nav-btn" data-tool="img" onclick="go('img')"><span class="nav-icon">🖼</span>Image Compressor</button>
+
+    <div class="sidebar-label">Convert</div>
+    <button class="nav-btn" data-tool="qr" onclick="go('qr')"><span class="nav-icon">⬛</span>QR Generator</button>
+  </aside>
+
+  <main class="content">
+
+    <!-- Word Counter -->
+    <section class="tool-panel active" id="tool-word">
+      <div class="ad-slot">
+        <div class="ad-slot-label">Advertisement</div>
+        <div class="ad-slot-hint">AdSense banner goes here — replace this div with your &lt;ins&gt; tag after approval</div>
+        <!-- Example AdSense ins tag (fill in after approval):
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+          data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        -->
+      </div>
+      <div class="tool-header">
+        <h1 class="tool-title">Word &amp; Character Counter</h1>
+        <div class="tool-desc">Instant counts for words, characters, sentences, paragraphs, and reading time</div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box"><div class="stat-num" id="wc-w">0</div><div class="stat-label">Words</div></div>
+        <div class="stat-box"><div class="stat-num" id="wc-c">0</div><div class="stat-label">Characters</div></div>
+        <div class="stat-box"><div class="stat-num" id="wc-cn">0</div><div class="stat-label">No spaces</div></div>
+        <div class="stat-box"><div class="stat-num" id="wc-s">0</div><div class="stat-label">Sentences</div></div>
+        <div class="stat-box"><div class="stat-num" id="wc-p">0</div><div class="stat-label">Paragraphs</div></div>
+        <div class="stat-box"><div class="stat-num" id="wc-r">0</div><div class="stat-label">Read (min)</div></div>
+      </div>
+      <textarea id="wc-input" rows="10" placeholder="Paste or type your text here…">The quick brown fox jumps over the lazy dog. This classic pangram contains every letter of the English alphabet and has been used to test typewriters, fonts, and keyboards for over a century.
+
+Word counters are among the most searched free online tools — writers, students, and content creators use them every day.</textarea>
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="document.getElementById('wc-input').value='';wcUpdate()">Clear</button>
+        <button class="btn btn-ghost" onclick="cp(document.getElementById('wc-input').value)">Copy text</button>
+      </div>
+    </section>
+
+    <!-- JSON Formatter -->
+    <section class="tool-panel" id="tool-json">
+      <div class="ad-slot"><div class="ad-slot-label">Advertisement</div><div class="ad-slot-hint">AdSense banner goes here</div></div>
+      <div class="tool-header">
+        <h1 class="tool-title">JSON Formatter &amp; Validator</h1>
+        <div class="tool-desc">Prettify, minify, and validate JSON — processed entirely in your browser</div>
+      </div>
+      <div class="card">
+        <textarea id="json-in" class="mono" rows="8" placeholder="Paste JSON here…">{"name":"Alice","age":30,"address":{"city":"New York","zip":"10001"},"skills":["JavaScript","Python","SQL"],"active":true}</textarea>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="jFmt()">✨ Prettify</button>
+          <button class="btn btn-ghost" onclick="jMin()">Minify</button>
+          <button class="btn btn-ghost" onclick="jVal()">Validate</button>
+          <button class="btn btn-ghost" onclick="cp(document.getElementById('json-out').textContent)">Copy output</button>
+        </div>
+      </div>
+      <div class="status-line" id="json-status"></div>
+      <div class="output-box" id="json-out"></div>
+    </section>
+
+    <!-- Percentage Calculator -->
+    <section class="tool-panel" id="tool-calc">
+      <div class="ad-slot"><div class="ad-slot-label">Advertisement</div><div class="ad-slot-hint">AdSense banner goes here</div></div>
+      <div class="tool-header">
+        <h1 class="tool-title">Percentage Calculator</h1>
+        <div class="tool-desc">Three instant percentage calculations — results update as you type</div>
+      </div>
+      <div class="card">
+        <div class="card-title">What is X% of Y?</div>
+        <div class="two-col">
+          <div class="field-group"><div class="field-label">Percentage (%)</div><input type="number" id="c1p" value="20" oninput="c1()"></div>
+          <div class="field-group"><div class="field-label">Of number</div><input type="number" id="c1n" value="250" oninput="c1()"></div>
+        </div>
+        <div class="result-band"><div class="rnum" id="c1r">50</div><div class="runit">answer</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">X is what % of Y?</div>
+        <div class="two-col">
+          <div class="field-group"><div class="field-label">Value (X)</div><input type="number" id="c2x" value="75" oninput="c2()"></div>
+          <div class="field-group"><div class="field-label">Total (Y)</div><input type="number" id="c2y" value="300" oninput="c2()"></div>
+        </div>
+        <div class="result-band"><div class="rnum" id="c2r">25</div><div class="runit">%</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Percentage change</div>
+        <div class="two-col">
+          <div class="field-group"><div class="field-label">From</div><input type="number" id="c3f" value="80" oninput="c3()"></div>
+          <div class="field-group"><div class="field-label">To</div><input type="number" id="c3t" value="100" oninput="c3()"></div>
+        </div>
+        <div class="result-band"><div class="rnum" id="c3r">+25.00</div><div class="runit">% change</div></div>
+      </div>
+    </section>
+
+    <!-- Password Generator -->
+    <section class="tool-panel" id="tool-pwd">
+      <div class="ad-slot"><div class="ad-slot-label">Advertisement</div><div class="ad-slot-hint">AdSense banner goes here</div></div>
+      <div class="tool-header">
+        <h1 class="tool-title">Password Generator</h1>
+        <div class="tool-desc">Cryptographically random passwords — generated in your browser, never sent anywhere</div>
+      </div>
+      <div class="card">
+        <div class="pwd-box" id="pwd-out">Generating…</div>
+        <div class="strength-track"><div class="strength-fill" id="s-fill" style="width:0%"></div></div>
+        <div class="strength-label" id="s-lbl">—</div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="genPwd()">↻ New password</button>
+          <button class="btn btn-ghost" onclick="cp(document.getElementById('pwd-out').textContent)">Copy</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Options</div>
+        <div class="range-row">
+          <div class="field-label">Length: <span id="plen-val">16</span> characters</div>
+          <input type="range" id="plen" min="4" max="64" value="16" oninput="document.getElementById('plen-val').textContent=this.value;genPwd()">
+        </div>
+        <div class="toggle-row"><span class="toggle-name">Uppercase (A–Z)</span><label class="toggle"><input type="checkbox" id="o-up" checked onchange="genPwd()"><span class="toggle-track"></span></label></div>
+        <div class="toggle-row"><span class="toggle-name">Lowercase (a–z)</span><label class="toggle"><input type="checkbox" id="o-lo" checked onchange="genPwd()"><span class="toggle-track"></span></label></div>
+        <div class="toggle-row"><span class="toggle-name">Numbers (0–9)</span><label class="toggle"><input type="checkbox" id="o-nu" checked onchange="genPwd()"><span class="toggle-track"></span></label></div>
+        <div class="toggle-row"><span class="toggle-name">Symbols (!@#$…)</span><label class="toggle"><input type="checkbox" id="o-sy" checked onchange="genPwd()"><span class="toggle-track"></span></label></div>
+      </div>
+    </section>
+
+    <!-- Image Compressor -->
+    <section class="tool-panel" id="tool-img">
+      <div class="ad-slot"><div class="ad-slot-label">Advertisement</div><div class="ad-slot-hint">AdSense banner goes here</div></div>
+      <div class="tool-header">
+        <h1 class="tool-title">Image Compressor</h1>
+        <div class="tool-desc">Compress JPEG and PNG images in your browser — your files never leave your device</div>
+      </div>
+      <div class="card">
+        <div class="drop-zone" id="dz" onclick="document.getElementById('img-file').click()">
+          <input type="file" id="img-file" accept="image/*" onchange="imgLoad(this.files[0])">
+          <div style="font-size:34px;margin-bottom:8px">🖼</div>
+          <div style="font-size:14px;font-weight:600">Click to select an image, or drag one here</div>
+          <div style="font-size:12.5px;margin-top:3px">JPEG · PNG · WebP — processed entirely in your browser</div>
+        </div>
+        <div id="img-work" hidden>
+          <div style="margin-top:16px">
+            <div class="range-row">
+              <div class="field-label">Quality: <span id="q-val">80</span>%</div>
+              <input type="range" id="q-slider" min="10" max="100" value="80" oninput="recompress()">
+            </div>
+          </div>
+          <div class="img-compare">
+            <div class="img-side"><img id="img-orig" alt="Original"><div class="img-side-meta"><strong>Original</strong> · <span id="orig-sz">—</span></div></div>
+            <div class="img-side"><canvas id="img-cv"></canvas><div class="img-side-meta"><strong>Compressed</strong> · <span id="comp-sz">—</span> · <span id="comp-pct" style="color:var(--success)"></span></div></div>
+          </div>
+          <div class="btn-row"><button class="btn btn-primary" onclick="dlImg()">⬇ Download compressed</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QR Generator -->
+    <section class="tool-panel" id="tool-qr">
+      <div class="ad-slot"><div class="ad-slot-label">Advertisement</div><div class="ad-slot-hint">AdSense banner goes here</div></div>
+      <div class="tool-header">
+        <h1 class="tool-title">QR Code Generator</h1>
+        <div class="tool-desc">Turn any URL or text into a scannable QR code — download as PNG</div>
+      </div>
+      <div class="card">
+        <div class="field-group" style="margin-bottom:6px">
+          <div class="field-label">URL or text</div>
+          <input type="text" id="qr-in" value="https://example.com" placeholder="https://your-site.com" oninput="qrGen()">
+        </div>
+        <div class="qr-center"><div id="qr-mount"></div></div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="qrDl()">⬇ Download PNG</button>
+          <button class="btn btn-ghost" onclick="cp(document.getElementById('qr-in').value)">Copy URL</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Base64 Encoder/Decoder -->
+    <section class="tool-panel" id="tool-b64">
+      <div class="ad-slot"><div class="ad-slot-label">Advertisement</div><div class="ad-slot-hint">AdSense banner goes here</div></div>
+      <div class="tool-header">
+        <h1 class="tool-title">Base64 Encoder / Decoder</h1>
+        <div class="tool-desc">Encode plain text to Base64 or decode Base64 back to text — all in your browser</div>
+      </div>
+      <div class="card">
+        <div class="field-group">
+          <div class="field-label">Input — paste text to encode, or Base64 to decode</div>
+          <textarea id="b64-in" class="mono" rows="5" placeholder="Hello, World!">Hello, QuickTools!</textarea>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="b64Enc()">Encode →</button>
+          <button class="btn btn-ghost" onclick="b64Dec()">← Decode</button>
+          <button class="btn btn-ghost" onclick="b64Clear()">Clear</button>
+        </div>
+      </div>
+      <div class="status-line" id="b64-status"></div>
+      <div class="output-box" id="b64-out" style="min-height:52px"></div>
+      <div class="btn-row" id="b64-btns" hidden>
+        <button class="btn btn-ghost" onclick="cp(document.getElementById('b64-out').textContent)">Copy output</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('b64-in').value=document.getElementById('b64-out').textContent;document.getElementById('b64-out').textContent='';document.getElementById('b64-btns').hidden=true">Use as input</button>
+      </div>
+    </section>
+
+    <!-- Case Converter -->
+    <section class="tool-panel" id="tool-case">
+      <div class="ad-slot"><div class="ad-slot-label">Advertisement</div><div class="ad-slot-hint">AdSense banner goes here</div></div>
+      <div class="tool-header">
+        <h1 class="tool-title">Case Converter</h1>
+        <div class="tool-desc">Convert text to upper, lower, title, sentence, camelCase, PascalCase, snake_case, or kebab-case</div>
+      </div>
+      <div class="card">
+        <div class="field-group">
+          <div class="field-label">Input text</div>
+          <textarea id="case-in" rows="5" placeholder="Type or paste text here…">the quick brown fox jumps over the lazy dog</textarea>
+        </div>
+        <div class="case-btns">
+          <button class="case-btn" onclick="cvCase('upper')">UPPER CASE</button>
+          <button class="case-btn" onclick="cvCase('lower')">lower case</button>
+          <button class="case-btn" onclick="cvCase('title')">Title Case</button>
+          <button class="case-btn" onclick="cvCase('sentence')">Sentence case</button>
+          <button class="case-btn" onclick="cvCase('camel')">camelCase</button>
+          <button class="case-btn" onclick="cvCase('pascal')">PascalCase</button>
+          <button class="case-btn" onclick="cvCase('snake')">snake_case</button>
+          <button class="case-btn" onclick="cvCase('kebab')">kebab-case</button>
+        </div>
+      </div>
+      <div class="output-box" id="case-out" style="min-height:60px"></div>
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="cp(document.getElementById('case-out').textContent)">Copy output</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('case-in').value='';document.getElementById('case-out').textContent=''">Clear</button>
+      </div>
+    </section>
+
+    <!-- Unit Converter -->
+    <section class="tool-panel" id="tool-unit">
+      <div class="ad-slot"><div class="ad-slot-label">Advertisement</div><div class="ad-slot-hint">AdSense banner goes here</div></div>
+      <div class="tool-header">
+        <h1 class="tool-title">Unit Converter</h1>
+        <div class="tool-desc">Convert length, weight, and temperature — calculations done locally</div>
+      </div>
+      <div class="card">
+        <div class="unit-tabs">
+          <button class="unit-tab active" onclick="setUCat('length',this)">📏 Length</button>
+          <button class="unit-tab" onclick="setUCat('weight',this)">⚖️ Weight</button>
+          <button class="unit-tab" onclick="setUCat('temp',this)">🌡️ Temperature</button>
+        </div>
+        <div class="two-col" style="margin-bottom:14px;align-items:end">
+          <div class="field-group">
+            <div class="field-label">From</div>
+            <select id="unit-from" onchange="doConvert()"></select>
+          </div>
+          <div class="field-group">
+            <div class="field-label">To</div>
+            <select id="unit-to" onchange="doConvert()"></select>
+          </div>
+        </div>
+        <div class="field-group" style="margin-bottom:14px">
+          <div class="field-label">Value</div>
+          <input type="number" id="unit-val" value="1" oninput="doConvert()">
+        </div>
+        <div class="result-band">
+          <div class="rnum" id="unit-result">—</div>
+          <div class="runit" id="unit-unit"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+// Theme
+const root = document.documentElement, tBtn = document.getElementById('theme-btn');
+function applyTheme(t){root.dataset.theme=t;tBtn.textContent=t==='dark'?'☀️':'🌙';try{localStorage.setItem('qt-theme',t);}catch(e){}}
+try{const s=localStorage.getItem('qt-theme');if(s)applyTheme(s);}catch(e){}
+tBtn.addEventListener('click',()=>{const c=root.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');applyTheme(c==='dark'?'light':'dark');});
+
+// Navigation
+function go(id){
+  document.querySelectorAll('.tool-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('[data-tool]').forEach(b=>b.classList.toggle('active',b.dataset.tool===id));
+  document.getElementById('tool-'+id).classList.add('active');
+  history.replaceState(null,'','#'+id);
+  try{localStorage.setItem('qt-last',id);}catch(e){}
+}
+
+// Toast / Copy
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200);}
+function cp(text){navigator.clipboard.writeText(text).then(()=>toast('Copied!')).catch(()=>{try{const ta=Object.assign(document.createElement('textarea'),{value:text,style:'position:fixed;opacity:0'});document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('Copied!');}catch(e){toast('Select text manually');}});}
+
+// Word Counter
+const wcEl=document.getElementById('wc-input');
+function wcUpdate(){const t=wcEl.value;const w=t.trim()?t.trim().split(/\s+/).length:0;document.getElementById('wc-w').textContent=w.toLocaleString();document.getElementById('wc-c').textContent=t.length.toLocaleString();document.getElementById('wc-cn').textContent=t.replace(/\s/g,'').length.toLocaleString();document.getElementById('wc-s').textContent=(t.match(/[.!?]+/g)||[]).length.toLocaleString();document.getElementById('wc-p').textContent=(t.trim()?t.split(/\n\s*\n/).filter(p=>p.trim()).length:0).toLocaleString();document.getElementById('wc-r').textContent=Math.max(1,Math.ceil(w/200));}
+wcEl.addEventListener('input',wcUpdate);wcUpdate();
+
+// JSON
+function jParse(){try{return{ok:true,val:JSON.parse(document.getElementById('json-in').value.trim())};}catch(e){return{ok:false,err:e.message};}}
+function jSt(msg,ok){const el=document.getElementById('json-status');el.textContent=msg;el.style.color=ok?'var(--success)':'var(--danger)';}
+function jFmt(){const r=jParse();if(!r.ok){jSt('❌ '+r.err,false);document.getElementById('json-out').textContent='';return;}const o=JSON.stringify(r.val,null,2);document.getElementById('json-in').value=o;document.getElementById('json-out').textContent=o;jSt('✅ Valid — prettified',true);}
+function jMin(){const r=jParse();if(!r.ok){jSt('❌ '+r.err,false);document.getElementById('json-out').textContent='';return;}document.getElementById('json-out').textContent=JSON.stringify(r.val);jSt('✅ Minified',true);}
+function jVal(){const r=jParse();document.getElementById('json-out').textContent='';r.ok?jSt('✅ Valid JSON — no errors found',true):jSt('❌ Invalid: '+r.err,false);}
+
+// Percentage
+function fmt(n){return isFinite(n)?+n.toFixed(4):'—';}
+function c1(){const p=parseFloat(document.getElementById('c1p').value)||0,n=parseFloat(document.getElementById('c1n').value)||0;document.getElementById('c1r').textContent=fmt((p/100)*n);}
+function c2(){const x=parseFloat(document.getElementById('c2x').value)||0,y=parseFloat(document.getElementById('c2y').value)||0;document.getElementById('c2r').textContent=y?fmt((x/y)*100):'—';}
+function c3(){const f=parseFloat(document.getElementById('c3f').value)||0,t=parseFloat(document.getElementById('c3t').value)||0,el=document.getElementById('c3r');if(!f){el.textContent='—';el.style.color='';return;}const ch=((t-f)/Math.abs(f))*100;el.textContent=(ch>=0?'+':'')+ch.toFixed(2);el.style.color=ch>=0?'var(--success)':'var(--danger)';}
+c1();c2();c3();
+
+// Password
+function genPwd(){const len=parseInt(document.getElementById('plen').value);let p='';if(document.getElementById('o-up').checked)p+='ABCDEFGHIJKLMNOPQRSTUVWXYZ';if(document.getElementById('o-lo').checked)p+='abcdefghijklmnopqrstuvwxyz';if(document.getElementById('o-nu').checked)p+='0123456789';if(document.getElementById('o-sy').checked)p+='!@#$%^&*()-_=+[]{}|;:,.<>?';if(!p){document.getElementById('pwd-out').textContent='Select at least one character type';return;}const arr=new Uint32Array(len);crypto.getRandomValues(arr);document.getElementById('pwd-out').textContent=Array.from(arr,n=>p[n%p.length]).join('');let sc=Math.min(30,Math.floor(len/2));if(document.getElementById('o-up').checked&&document.getElementById('o-lo').checked)sc+=20;else sc+=8;if(document.getElementById('o-nu').checked)sc+=20;if(document.getElementById('o-sy').checked)sc+=25;sc=Math.min(100,sc);const fill=document.getElementById('s-fill'),lbl=document.getElementById('s-lbl');fill.style.width=sc+'%';if(sc<35){fill.style.background='var(--danger)';lbl.textContent='Weak';}else if(sc<60){fill.style.background='var(--warn)';lbl.textContent='Fair';}else if(sc<80){fill.style.background='var(--success)';lbl.textContent='Strong';}else{fill.style.background='var(--accent)';lbl.textContent='Very strong';}}
+genPwd();
+
+// Image
+let origFile=null;
+const dz=document.getElementById('dz');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('over');});
+dz.addEventListener('dragleave',()=>dz.classList.remove('over'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('over');const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/'))imgLoad(f);});
+function fmtB(b){if(b<1024)return b+' B';if(b<1048576)return (b/1024).toFixed(1)+' KB';return (b/1048576).toFixed(2)+' MB';}
+function imgLoad(file){if(!file)return;origFile=file;document.getElementById('orig-sz').textContent=fmtB(file.size);const r=new FileReader();r.onload=e=>{document.getElementById('img-orig').src=e.target.result;document.getElementById('img-work').hidden=false;recompress();};r.readAsDataURL(file);}
+function recompress(){if(!origFile)return;const q=parseInt(document.getElementById('q-slider').value)/100;document.getElementById('q-val').textContent=Math.round(q*100);const img=document.getElementById('img-orig'),cv=document.getElementById('img-cv');const tmp=new Image();tmp.onload=()=>{cv.width=tmp.naturalWidth;cv.height=tmp.naturalHeight;cv.getContext('2d').drawImage(tmp,0,0);cv.toBlob(blob=>{document.getElementById('comp-sz').textContent=fmtB(blob.size);const s=((1-blob.size/origFile.size)*100);document.getElementById('comp-pct').textContent=s>0?`−${s.toFixed(0)}% smaller`:'No reduction';},'image/jpeg',q);}; tmp.src=img.src;}
+function dlImg(){const cv=document.getElementById('img-cv'),q=parseInt(document.getElementById('q-slider').value)/100;cv.toBlob(blob=>{const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='compressed-'+(origFile?origFile.name.replace(/\.[^.]+$/,''):'image')+'.jpg';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);},'image/jpeg',q);}
+
+// QR
+function qrGen(){const text=document.getElementById('qr-in').value.trim()||'https://example.com';const m=document.getElementById('qr-mount');m.innerHTML='';if(typeof QRCode==='undefined')return;new QRCode(m,{text,width:220,height:220,colorDark:'#000000',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});}
+function qrDl(){const cv=document.querySelector('#qr-mount canvas');if(!cv){toast('Generate a QR first');return;}const a=document.createElement('a');a.href=cv.toDataURL('image/png');a.download='qrcode.png';a.click();}
+
+// Base64
+function b64Enc(){try{const out=btoa(unescape(encodeURIComponent(document.getElementById('b64-in').value)));document.getElementById('b64-out').textContent=out;setSt('b64-status','✅ Encoded',true);document.getElementById('b64-btns').hidden=false;}catch(e){setSt('b64-status','❌ '+e.message,false);}}
+function b64Dec(){try{const out=decodeURIComponent(escape(atob(document.getElementById('b64-in').value.trim())));document.getElementById('b64-out').textContent=out;setSt('b64-status','✅ Decoded',true);document.getElementById('b64-btns').hidden=false;}catch(e){setSt('b64-status','❌ Invalid Base64',false);}}
+function b64Clear(){document.getElementById('b64-in').value='';document.getElementById('b64-out').textContent='';document.getElementById('b64-status').textContent='';document.getElementById('b64-btns').hidden=true;}
+function setSt(id,msg,ok){const el=document.getElementById(id);el.textContent=msg;el.style.color=ok?'var(--success)':'var(--danger)';}
+
+// Case Converter
+function cvCase(type){const v=document.getElementById('case-in').value;const words=v.trim().split(/[\s_\-]+/).filter(Boolean);let out='';switch(type){case 'upper':out=v.toUpperCase();break;case 'lower':out=v.toLowerCase();break;case 'title':out=v.toLowerCase().replace(/(?:^|\s)\S/g,c=>c.toUpperCase());break;case 'sentence':out=v.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g,c=>c.toUpperCase());break;case 'camel':out=words.map((w,i)=>i===0?w.toLowerCase():w[0].toUpperCase()+w.slice(1).toLowerCase()).join('');break;case 'pascal':out=words.map(w=>w[0].toUpperCase()+w.slice(1).toLowerCase()).join('');break;case 'snake':out=words.map(w=>w.toLowerCase()).join('_');break;case 'kebab':out=words.map(w=>w.toLowerCase()).join('-');break;}document.getElementById('case-out').textContent=out;}
+
+// Unit Converter
+const UNITS={length:{units:{mm:'Millimeter',cm:'Centimeter',m:'Meter',km:'Kilometer',in:'Inch',ft:'Foot',yd:'Yard',mi:'Mile'},base:{mm:0.001,cm:0.01,m:1,km:1000,in:0.0254,ft:0.3048,yd:0.9144,mi:1609.344}},weight:{units:{mg:'Milligram',g:'Gram',kg:'Kilogram',lb:'Pound',oz:'Ounce',t:'Metric ton'},base:{mg:1e-6,g:0.001,kg:1,lb:0.453592,oz:0.0283495,t:1000}},temp:{units:{C:'Celsius',F:'Fahrenheit',K:'Kelvin'},base:null}};
+let uCat='length';
+function setUCat(cat,btn){uCat=cat;document.querySelectorAll('.unit-tab').forEach(b=>b.classList.toggle('active',b===btn));const c=UNITS[cat];['unit-from','unit-to'].forEach(id=>{document.getElementById(id).innerHTML=Object.entries(c.units).map(([k,v])=>`<option value="${k}">${v} (${k})</option>`).join('');});const keys=Object.keys(c.units);document.getElementById('unit-from').value=keys[0];document.getElementById('unit-to').value=keys[1]||keys[0];doConvert();}
+function doConvert(){const val=parseFloat(document.getElementById('unit-val').value),from=document.getElementById('unit-from').value,to=document.getElementById('unit-to').value,c=UNITS[uCat];if(isNaN(val)){document.getElementById('unit-result').textContent='—';return;}let res;if(uCat==='temp'){let ce=from==='C'?val:from==='F'?(val-32)*5/9:val-273.15;res=to==='C'?ce:to==='F'?ce*9/5+32:ce+273.15;}else{res=(val*c.base[from])/c.base[to];}document.getElementById('unit-result').textContent=+res.toFixed(6);document.getElementById('unit-unit').textContent=c.units[to];}
+
+// Init
+window.addEventListener('load',()=>{
+  setUCat('length',document.querySelector('.unit-tab.active'));
+  qrGen();
+  const hash=location.hash.replace('#','');
+  const last=hash||(()=>{try{return localStorage.getItem('qt-last');}catch(e){return null;}})();
+  if(last&&document.getElementById('tool-'+last))go(last);
+});
+</script>
+</body>
+</html>
