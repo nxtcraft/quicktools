@@ -235,43 +235,34 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 </header>
 
 <nav class="mobile-nav">
-  <button class="active" data-tool="word" onclick="go('word')">📝 Words</button>
-  <button data-tool="json" onclick="go('json')">📋 JSON</button>
-  <button data-tool="calc" onclick="go('calc')">🔢 Percent</button>
-  <button data-tool="pwd" onclick="go('pwd')">🔑 Password</button>
-  <button data-tool="img" onclick="go('img')">🖼 Image</button>
+  <button class="active" data-tool="img" onclick="go('img')">🖼 Image</button>
+  <button data-tool="word" onclick="go('word')">📝 Words</button>
   <button data-tool="qr" onclick="go('qr')">⬛ QR</button>
-  <button data-tool="b64" onclick="go('b64')">🔤 Base64</button>
-  <button data-tool="case" onclick="go('case')">🔡 Case</button>
+  <button data-tool="pwd" onclick="go('pwd')">🔑 Password</button>
+  <button data-tool="calc" onclick="go('calc')">🔢 Percent</button>
+  <button data-tool="json" onclick="go('json')">📋 JSON</button>
   <button data-tool="unit" onclick="go('unit')">📏 Units</button>
+  <button data-tool="case" onclick="go('case')">🔡 Case</button>
+  <button data-tool="b64" onclick="go('b64')">🔤 Base64</button>
 </nav>
 
 <div class="app">
   <aside class="sidebar">
-    <div class="sidebar-label">Text</div>
-    <button class="nav-btn active" data-tool="word" onclick="go('word')"><span class="nav-icon">📝</span>Word Counter</button>
-    <button class="nav-btn" data-tool="json" onclick="go('json')"><span class="nav-icon">📋</span>JSON Formatter</button>
-    <button class="nav-btn" data-tool="b64" onclick="go('b64')"><span class="nav-icon">🔤</span>Base64 Encoder</button>
-    <button class="nav-btn" data-tool="case" onclick="go('case')"><span class="nav-icon">🔡</span>Case Converter</button>
-
-    <div class="sidebar-label">Math</div>
-    <button class="nav-btn" data-tool="calc" onclick="go('calc')"><span class="nav-icon">🔢</span>% Calculator</button>
-    <button class="nav-btn" data-tool="unit" onclick="go('unit')"><span class="nav-icon">📏</span>Unit Converter</button>
-
-    <div class="sidebar-label">Security</div>
-    <button class="nav-btn" data-tool="pwd" onclick="go('pwd')"><span class="nav-icon">🔑</span>Password Gen</button>
-
-    <div class="sidebar-label">Media</div>
-    <button class="nav-btn" data-tool="img" onclick="go('img')"><span class="nav-icon">🖼</span>Image Compressor</button>
-
-    <div class="sidebar-label">Convert</div>
+    <button class="nav-btn active" data-tool="img" onclick="go('img')"><span class="nav-icon">🖼</span>Image Compressor</button>
+    <button class="nav-btn" data-tool="word" onclick="go('word')"><span class="nav-icon">📝</span>Word Counter</button>
     <button class="nav-btn" data-tool="qr" onclick="go('qr')"><span class="nav-icon">⬛</span>QR Generator</button>
+    <button class="nav-btn" data-tool="pwd" onclick="go('pwd')"><span class="nav-icon">🔑</span>Password Gen</button>
+    <button class="nav-btn" data-tool="calc" onclick="go('calc')"><span class="nav-icon">🔢</span>% Calculator</button>
+    <button class="nav-btn" data-tool="json" onclick="go('json')"><span class="nav-icon">📋</span>JSON Formatter</button>
+    <button class="nav-btn" data-tool="unit" onclick="go('unit')"><span class="nav-icon">📏</span>Unit Converter</button>
+    <button class="nav-btn" data-tool="case" onclick="go('case')"><span class="nav-icon">🔡</span>Case Converter</button>
+    <button class="nav-btn" data-tool="b64" onclick="go('b64')"><span class="nav-icon">🔤</span>Base64 Encoder</button>
   </aside>
 
   <main class="content">
 
     <!-- Word Counter -->
-    <section class="tool-panel active" id="tool-word">
+    <section class="tool-panel" id="tool-word">
       <div class="ad-slot">
         <div class="ad-slot-label">Advertisement</div>
         <div class="ad-slot-hint">AdSense banner goes here — replace this div with your &lt;ins&gt; tag after approval</div>
@@ -385,7 +376,7 @@ Word counters are among the most searched free online tools — writers, student
     </section>
 
     <!-- Image Compressor -->
-    <section class="tool-panel" id="tool-img">
+    <section class="tool-panel active" id="tool-img">
       <div class="ad-slot"><div class="ad-slot-label">Advertisement</div><div class="ad-slot-hint">AdSense banner goes here</div></div>
       <div class="tool-header">
         <h1 class="tool-title">Compress Images Online Free — No Upload to Server</h1>
