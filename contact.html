@@ -20,24 +20,32 @@ body{font-family:var(--font);background:var(--bg);color:var(--fg);padding:0 max(
 .content{max-width:600px;margin:0 auto;padding:40px 0 60px;}
 h1{font-size:1.8rem;font-weight:700;margin-bottom:8px;}
 .sub{color:var(--fg2);font-size:15px;margin-bottom:36px;line-height:1.6;}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;}
-.contact-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);}
-.contact-row:last-child{border-bottom:none;padding-bottom:0;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px;}
+.field-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.field-group:last-of-type{margin-bottom:0;}
+label{font-size:13px;font-weight:600;color:var(--fg2);}
+input[type="text"],input[type="email"],textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:11px 13px;color:var(--fg);font-family:var(--font);font-size:14px;outline:none;transition:border-color .15s;resize:vertical;}
+input:focus,textarea:focus{border-color:var(--accent);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 24px;border-radius:8px;font-family:var(--font);font-size:14px;font-weight:600;cursor:pointer;border:none;transition:opacity .15s,transform .1s;width:100%;}
+.btn:active{transform:scale(.98);}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{opacity:.9;}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;}
+.github-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);}
+.github-row:last-child{border-bottom:none;padding-bottom:0;}
 .contact-icon{font-size:22px;flex-shrink:0;width:36px;text-align:center;}
 .contact-label{font-size:12px;color:var(--fg2);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;}
-.contact-value{font-size:15px;font-weight:500;word-break:break-all;}
-.copy-btn{margin-left:auto;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--fg2);font-family:var(--font);flex-shrink:0;}
-.copy-btn:hover{color:var(--accent);border-color:var(--accent);}
+.contact-value{font-size:15px;font-weight:500;}
 a{color:var(--accent);text-decoration:none;}
 a:hover{text-decoration:underline;}
 .footer{border-top:1px solid var(--border);margin-top:40px;padding-top:20px;font-size:13px;color:var(--fg2);display:flex;gap:16px;flex-wrap:wrap;}
-.toast{position:fixed;bottom:20px;right:20px;background:var(--fg);color:var(--bg);padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;}
-.toast.show{opacity:1;transform:translateY(0);}
+.success-box{display:none;background:var(--accent-bg);border:1px solid var(--accent);border-radius:10px;padding:20px 22px;text-align:center;}
+.success-box.show{display:block;}
+.success-box .icon{font-size:32px;margin-bottom:8px;}
+.success-box p{color:var(--accent);font-weight:600;font-size:15px;}
 </style>
 </head>
 <body>
-
-<div class="toast" id="toast"></div>
 
 <header class="topbar">
   <a class="logo" href="index.html">
@@ -48,29 +56,48 @@ a:hover{text-decoration:underline;}
 
 <div class="content">
   <h1>Contact</h1>
-  <p class="sub">Have a suggestion for a new tool, found a bug, or just want to say hi? Reach out — we read every message.</p>
+  <p class="sub">Have a suggestion for a new tool, found a bug, or just want to say hi? Fill in the form — we read every message.</p>
+
+  <div class="success-box" id="success-box">
+    <div class="icon">✅</div>
+    <p>Message sent! We'll get back to you soon.</p>
+  </div>
+
+  <div class="card" id="form-card">
+    <form id="contact-form">
+      <input type="hidden" name="_subject" value="New message from QuickTools">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="field-group">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" placeholder="Pradeep" required>
+      </div>
+      <div class="field-group">
+        <label for="email">Your email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="field-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell us about a bug, suggest a tool, or just say hi…" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" id="submit-btn">Send message →</button>
+    </form>
+  </div>
 
   <div class="card">
-    <div class="contact-row">
-      <div class="contact-icon">✉️</div>
-      <div>
-        <div class="contact-label">Email</div>
-        <div class="contact-value" id="email-val">pradeepkesharwani4@gmail.com</div>
-      </div>
-      <button class="copy-btn" onclick="copyEmail()">Copy</button>
-    </div>
-    <div class="contact-row">
-      <div class="contact-icon">💻</div>
-      <div>
-        <div class="contact-label">GitHub</div>
-        <div class="contact-value"><a href="https://github.com/pradeepphdata/quicktools" target="_blank" rel="noopener">github.com/pradeepphdata/quicktools</a></div>
-      </div>
-    </div>
-    <div class="contact-row">
+    <div class="github-row">
       <div class="contact-icon">🐛</div>
       <div>
         <div class="contact-label">Bug reports &amp; feature requests</div>
         <div class="contact-value"><a href="https://github.com/pradeepphdata/quicktools/issues" target="_blank" rel="noopener">Open a GitHub issue</a></div>
+      </div>
+    </div>
+    <div class="github-row">
+      <div class="contact-icon">💻</div>
+      <div>
+        <div class="contact-label">Source code</div>
+        <div class="contact-value"><a href="https://github.com/pradeepphdata/quicktools" target="_blank" rel="noopener">github.com/pradeepphdata/quicktools</a></div>
       </div>
     </div>
   </div>
@@ -83,13 +110,35 @@ a:hover{text-decoration:underline;}
 </div>
 
 <script>
-function copyEmail(){
-  const email = document.getElementById('email-val').textContent;
-  navigator.clipboard.writeText(email).then(()=>showToast('Email copied!')).catch(()=>{
-    try{const ta=Object.assign(document.createElement('textarea'),{value:email,style:'position:fixed;opacity:0'});document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('Email copied!');}catch(e){}
+(function(){
+  const p=['pradeepkesharwani4','gmail','com'];
+  const ep=p[0]+'@'+p[1]+'.'+p[2];
+  const form=document.getElementById('contact-form');
+  form.action='https://formsubmit.co/'+ep;
+  form.method='POST';
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    const btn=document.getElementById('submit-btn');
+    btn.disabled=true;
+    btn.textContent='Sending…';
+    const data=new FormData(form);
+    fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}})
+      .then(r=>{
+        if(r.ok||r.status===200||r.redirected){
+          document.getElementById('form-card').style.display='none';
+          document.getElementById('success-box').classList.add('show');
+        } else {
+          btn.disabled=false;btn.textContent='Send message →';
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(()=>{
+        btn.disabled=false;btn.textContent='Send message →';
+        alert('Network error. Please check your connection and try again.');
+      });
   });
-}
-function showToast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200);}
+})();
 </script>
 </body>
 </html>
