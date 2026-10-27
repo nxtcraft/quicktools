@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — QuickTools</title>
+<meta name="description" content="Contact QuickTools — send us feedback, report a bug, or suggest a new tool.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F6F8;--surface:#fff;--border:#E3E6ED;--fg:#111827;--fg2:#6B7480;--accent:#0D9488;--accent-bg:#CCFBF1;--font:'Plus Jakarta Sans',system-ui,sans-serif;color-scheme:light;}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0F17;--surface:#161923;--border:#252A3A;--fg:#EFF1F7;--fg2:#7E8599;--accent:#2DD4BF;--accent-bg:#042F2E;color-scheme:dark;}}
+:root[data-theme="dark"]{--bg:#0C0F17;--surface:#161923;--border:#252A3A;--fg:#EFF1F7;--fg2:#7E8599;--accent:#2DD4BF;--accent-bg:#042F2E;color-scheme:dark;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);padding:0 max(16px,env(safe-area-inset-left,0px));}
+.topbar{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:13px 0;gap:10px;margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.05rem;color:var(--fg);text-decoration:none;flex:1;}
+.logo-mark{width:30px;height:30px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:800;}
+.content{max-width:600px;margin:0 auto;padding:40px 0 60px;}
+h1{font-size:1.8rem;font-weight:700;margin-bottom:8px;}
+.sub{color:var(--fg2);font-size:15px;margin-bottom:36px;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;}
+.contact-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);}
+.contact-row:last-child{border-bottom:none;padding-bottom:0;}
+.contact-icon{font-size:22px;flex-shrink:0;width:36px;text-align:center;}
+.contact-label{font-size:12px;color:var(--fg2);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;}
+.contact-value{font-size:15px;font-weight:500;word-break:break-all;}
+.copy-btn{margin-left:auto;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--fg2);font-family:var(--font);flex-shrink:0;}
+.copy-btn:hover{color:var(--accent);border-color:var(--accent);}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.footer{border-top:1px solid var(--border);margin-top:40px;padding-top:20px;font-size:13px;color:var(--fg2);display:flex;gap:16px;flex-wrap:wrap;}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--fg);color:var(--bg);padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.toast.show{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<header class="topbar">
+  <a class="logo" href="index.html">
+    <div class="logo-mark">Q</div>
+    QuickTools
+  </a>
+</header>
+
+<div class="content">
+  <h1>Contact</h1>
+  <p class="sub">Have a suggestion for a new tool, found a bug, or just want to say hi? Reach out — we read every message.</p>
+
+  <div class="card">
+    <div class="contact-row">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value" id="email-val">pradeepkesharwani4@gmail.com</div>
+      </div>
+      <button class="copy-btn" onclick="copyEmail()">Copy</button>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">💻</div>
+      <div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-value"><a href="https://github.com/pradeepphdata/quicktools" target="_blank" rel="noopener">github.com/pradeepphdata/quicktools</a></div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">🐛</div>
+      <div>
+        <div class="contact-label">Bug reports &amp; feature requests</div>
+        <div class="contact-value"><a href="https://github.com/pradeepphdata/quicktools/issues" target="_blank" rel="noopener">Open a GitHub issue</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="index.html">← Back to QuickTools</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+</div>
+
+<script>
+function copyEmail(){
+  const email = document.getElementById('email-val').textContent;
+  navigator.clipboard.writeText(email).then(()=>showToast('Email copied!')).catch(()=>{
+    try{const ta=Object.assign(document.createElement('textarea'),{value:email,style:'position:fixed;opacity:0'});document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('Email copied!');}catch(e){}
+  });
+}
+function showToast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200);}
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — QuickTools</title>
+<meta name="description" content="About QuickTools — free browser-based online utilities that run entirely on your device.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F6F8;--surface:#fff;--border:#E3E6ED;--fg:#111827;--fg2:#6B7480;--accent:#0D9488;--accent-bg:#CCFBF1;--font:'Plus Jakarta Sans',system-ui,sans-serif;color-scheme:light;}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0F17;--surface:#161923;--border:#252A3A;--fg:#EFF1F7;--fg2:#7E8599;--accent:#2DD4BF;--accent-bg:#042F2E;color-scheme:dark;}}
+:root[data-theme="dark"]{--bg:#0C0F17;--surface:#161923;--border:#252A3A;--fg:#EFF1F7;--fg2:#7E8599;--accent:#2DD4BF;--accent-bg:#042F2E;color-scheme:dark;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);padding:0 max(16px,env(safe-area-inset-left,0px));}
+.topbar{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:13px 0;gap:10px;margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.05rem;color:var(--fg);text-decoration:none;flex:1;}
+.logo-mark{width:30px;height:30px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:800;}
+.content{max-width:720px;margin:0 auto;padding:40px 0 60px;}
+h1{font-size:1.8rem;font-weight:700;margin-bottom:16px;}
+h2{font-size:1.05rem;font-weight:700;margin:28px 0 10px;}
+p,li{font-size:15px;line-height:1.7;color:var(--fg2);}
+p{margin-bottom:12px;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:16px 0;}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+.tool-card-icon{font-size:20px;margin-bottom:6px;}
+.tool-card-name{font-size:13.5px;font-weight:600;}
+.tool-card-desc{font-size:12px;color:var(--fg2);margin-top:3px;}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent-bg);color:var(--accent);font-size:13px;font-weight:600;padding:6px 14px;border-radius:20px;margin-bottom:24px;}
+.footer{border-top:1px solid var(--border);margin-top:40px;padding-top:20px;font-size:13px;color:var(--fg2);display:flex;gap:16px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="index.html">
+    <div class="logo-mark">Q</div>
+    QuickTools
+  </a>
+</header>
+
+<div class="content">
+  <h1>About QuickTools</h1>
+  <div class="badge">🔒 Nothing leaves your device</div>
+
+  <p>QuickTools is a free collection of browser-based utilities built for everyday use. Every tool runs entirely in your browser using JavaScript — no files, text, or data of any kind is sent to a server.</p>
+
+  <p>No account. No signup. No tracking of what you type. Just tools that work.</p>
+
+  <h2>Available Tools</h2>
+  <div class="tools-grid">
+    <div class="tool-card"><div class="tool-card-icon">📝</div><div class="tool-card-name">Word Counter</div><div class="tool-card-desc">Words, characters, sentences, reading time</div></div>
+    <div class="tool-card"><div class="tool-card-icon">📋</div><div class="tool-card-name">JSON Formatter</div><div class="tool-card-desc">Prettify, minify, and validate JSON</div></div>
+    <div class="tool-card"><div class="tool-card-icon">🔢</div><div class="tool-card-name">% Calculator</div><div class="tool-card-desc">Percentage of, ratio, and change</div></div>
+    <div class="tool-card"><div class="tool-card-icon">🔑</div><div class="tool-card-name">Password Generator</div><div class="tool-card-desc">Cryptographically random passwords</div></div>
+    <div class="tool-card"><div class="tool-card-icon">🖼</div><div class="tool-card-name">Image Compressor</div><div class="tool-card-desc">Compress JPEG/PNG in-browser</div></div>
+    <div class="tool-card"><div class="tool-card-icon">⬛</div><div class="tool-card-name">QR Generator</div><div class="tool-card-desc">URL or text to scannable QR code</div></div>
+    <div class="tool-card"><div class="tool-card-icon">🔤</div><div class="tool-card-name">Base64 Encoder</div><div class="tool-card-desc">Encode and decode Base64 text</div></div>
+    <div class="tool-card"><div class="tool-card-icon">🔡</div><div class="tool-card-name">Case Converter</div><div class="tool-card-desc">camelCase, snake_case, Title Case +more</div></div>
+    <div class="tool-card"><div class="tool-card-icon">📏</div><div class="tool-card-name">Unit Converter</div><div class="tool-card-desc">Length, weight, and temperature</div></div>
+  </div>
+
+  <h2>Built with</h2>
+  <p>Vanilla HTML, CSS, and JavaScript — no frameworks, no build tools, no dependencies except Google Fonts and a QR code library. The entire site is a single HTML file and loads in under a second.</p>
+
+  <h2>Suggestions?</h2>
+  <p>Have a tool you'd like to see added? <a href="contact.html">Get in touch</a> — we read every message.</p>
+
+  <div class="footer">
+    <a href="index.html">← Back to QuickTools</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</div>
+</body>
+</html>
