@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pradeepphdata.github.io/quicktools/sitemap.xml
+Sitemap: https://nxtcraft.github.io/quicktools/sitemap.xml

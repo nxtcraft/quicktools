@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://pradeepphdata.github.io/quicktools/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://pradeepphdata.github.io/quicktools/#word</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://pradeepphdata.github.io/quicktools/#json</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://pradeepphdata.github.io/quicktools/#calc</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://pradeepphdata.github.io/quicktools/#pwd</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://pradeepphdata.github.io/quicktools/#img</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://pradeepphdata.github.io/quicktools/#qr</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://pradeepphdata.github.io/quicktools/#b64</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://pradeepphdata.github.io/quicktools/#case</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://pradeepphdata.github.io/quicktools/#unit</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://nxtcraft.github.io/quicktools/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://nxtcraft.github.io/quicktools/#word</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://nxtcraft.github.io/quicktools/#json</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://nxtcraft.github.io/quicktools/#calc</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://nxtcraft.github.io/quicktools/#pwd</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://nxtcraft.github.io/quicktools/#img</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://nxtcraft.github.io/quicktools/#qr</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://nxtcraft.github.io/quicktools/#b64</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://nxtcraft.github.io/quicktools/#case</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://nxtcraft.github.io/quicktools/#unit</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
 </urlset>
